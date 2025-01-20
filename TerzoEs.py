@@ -11,15 +11,22 @@ posizione i è la somma dei valori di a e b nelle rispettive posizioni i. [P8.22
 a={5:4, 9:2, 10:9}
 b={2:3, 5:1, 9:5}
 def sparse_array_sum(a, b):
-    c=[]
+    """c=[]
     maxKey = max(max(a.keys()), max(b.keys()))
     for i in range(maxKey+1):
         c.append(0)
     for key in a.keys():
         c[key] = a[key]
     for key in b.keys():
-        c[key] += b[key]
-
+        c[key] += b[key]"""
+    c = {}
+    for key in a.keys():
+        c[key] = a[key]
+    for key in b.keys():
+        if key in c:
+            c[key] += b[key]
+        else:
+            c[key] = b[key]
 
     return c
 print(sparse_array_sum(a, b))
